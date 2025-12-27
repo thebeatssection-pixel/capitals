@@ -10,8 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
         outputText.value = result;
     }
 
+    // Function to handle lowercase conversion (reverse)
+    function toLowercase() {
+        const original = outputText.value;
+        const result = original.toLowerCase();
+        inputText.value = result;
+    }
+
     // Event listener for real-time conversion
     inputText.addEventListener('input', toCapitals);
+    outputText.addEventListener('input', toLowercase);
 
     // Copy to clipboard functionality
     copyBtn.addEventListener('click', async () => {
@@ -19,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             await navigator.clipboard.writeText(outputText.value);
-            
+
             // Visual feedback
             const originalIcon = copyBtn.innerHTML;
             copyBtn.innerHTML = `
